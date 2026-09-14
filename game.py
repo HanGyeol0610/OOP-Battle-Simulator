@@ -1,4 +1,5 @@
 from goblin import Goblin
+from hero import Hero
 
 
 ARENA_NAME = "The Iron Triangle"
@@ -10,15 +11,22 @@ def main():
     print("༼ ᓄºل͟º ༽ᓄ   ᕦ(ò_óˇ)ᕤ")
     print("The gates are opening...")
 
-    goblin = Goblin("Griddle")
+    goblin1 = Goblin("Griddle")
 
-    print(f"{goblin.name} enters the arena with {goblin.health} health.")
+    print(f"{goblin1.name} enters the arena with {goblin1.health} health.")
 
-    goblin = Goblin("Scribble")
+    goblin2 = Goblin("Scribble")
     
-    print(f"{goblin.name} enters the arena with {goblin.health} health.")
+    print(f"{goblin2.name} enters the arena with {goblin2.health} health.")
 
-    print("But no hero has answered the call... yet.")
+    hero1 = Hero("Glimmer")
+
+    print((f"{hero1.name} enters the arena with {hero1.health} health."))
+
+    goblin1.health = goblin1.take_damage(hero1.attack())
+
+    if goblin1.is_alive():
+        hero1.take_damage(goblin1.attack())
 
 
 if __name__ == "__main__":
