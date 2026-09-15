@@ -4,6 +4,19 @@ from hero import Hero
 
 ARENA_NAME = "The Iron Triangle"
 
+def battle(hero: Hero, enemy: Goblin):
+    while hero.is_alive() and enemy.is_alive():
+        hero_damage = hero.attack()
+        enemy.take_damage(hero_damage)
+
+        if enemy.is_alive():
+            enemy_damage = enemy.attack()
+            hero.take_damage(enemy_damage)
+
+    if hero.is_alive():
+        print(f"{hero.name} wins!")
+    else:
+        print(f"{enemy.name} wins!")
 
 def main():
     """Open the arena and introduce its first opponent."""
@@ -23,10 +36,8 @@ def main():
 
     print((f"{hero1.name} enters the arena with {hero1.health} health."))
 
-    goblin1.take_damage(hero1.attack())
+    battle(hero1,goblin1)
 
-    if goblin1.is_alive():
-        hero1.take_damage(goblin1.attack())
 
 
 if __name__ == "__main__":
