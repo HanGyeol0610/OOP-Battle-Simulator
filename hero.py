@@ -12,8 +12,8 @@ class Hero:
         totalAttack = 0
         totalAttack=random.randint(1, self.attack_power)
         if random.randint(1,3) == 1:
-            totalAttack = totalAttack + (totalAttack % 3)
-            print("Crit hit of: " + str(totalAttack % 3))
+            totalAttack = totalAttack + (totalAttack // 3)
+            print("Crit hit of: " + str(totalAttack // 3))
         return totalAttack
     
     def take_damage(self, damage):
